@@ -42,9 +42,11 @@ const clauses=[
 const form=document.querySelector('#searchForm'), input=document.querySelector('#question'), results=document.querySelector('#results'), status=document.querySelector('#status');
 const keywordList=document.querySelector('#keywordList');
 clauses.forEach(([title])=>{const keyword=title.replace(/^제\d+조 \(|\)$/g,'');const li=document.createElement('li');const button=document.createElement('button');button.type='button';button.textContent=keyword;button.addEventListener('click',()=>{input.value=keyword;form.requestSubmit()});li.append(button);keywordList.append(li)});
-form.addEventListener('submit',e=>{e.preventDefault(); const q=input.value.trim(); results.replaceChildren(); if(!q){status.textContent='질문이 모호함';return} const found=clauses.filter(([title])=>{const key=title.replace(/^제\d+조 \(|\)$/g,'');return q.includes(key)}); if(!found.length){status.textContent='관련 조항이 없음';return} status.textContent='관련 조항'; found.forEach(([title,items])=>{const a=document.createElement('article');a.className='result';const h=document.createElement('h2');h.textContent=title;a.append(h);const ol=document.createElement('ol');items.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.append(li)});a.append(ol);results.append(a)})});
+form.addEventListener('submit',e=>{e.preventDefault(); const q=input.value.trim(); results.replaceChildren(); if(!q){status.textContent='질문이 모호함';return} const found=clauses.filter(([title])=>{const key=title.replace(/^제\d+조 \(|\)$/g,'');const terms=q.split(/\s+/).filter(term=>term.length>=2);return q.includes(key)||terms.some(term=>key.includes(term))}); if(!found.length){status.textContent='관련 조항이 없음';return} status.textContent='관련 조항'; found.forEach(([title,items])=>{const a=document.createElement('article');a.className='result';const h=document.createElement('h2');h.textContent=title;a.append(h);const ol=document.createElement('ol');items.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.append(li)});a.append(ol);results.append(a)})});
 </script>
 </body>
 </html>
+
+
 
 
