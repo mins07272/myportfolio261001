@@ -1,0 +1,20 @@
+{
+  "company": "HD Hyundai Heavy Industries",
+  "corp_code": "01390344",
+  "business_year": 2025,
+  "report": "Annual Business Report",
+  "currency": "KRW",
+  "unit": "won",
+  "financials": {
+    "revenue": 17580633257000,
+    "operating_income": 2037510103000,
+    "order_backlog": 56384472000000
+  },
+  "source": {
+    "api": "OpenDART",
+    "endpoint": "fnlttSinglAcntAll",
+    "receipt_no": "20260320000859",
+    "order_backlog_unit_in_report": "million KRW",
+    "order_backlog_note": "Total ending order backlog from the report's Sales and Orders table."
+  }
+}

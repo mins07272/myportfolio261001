@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="기구설계·의장설계 신입 지원자 포트폴리오">
+  <title>기구설계 · 의장설계 포트폴리오</title>
+  <style>
+    :root { --khaki:#66735b; --khaki-dark:#3f4b38; --matcha:#e7eee0; --matcha-deep:#cbd9c0; --ink:#263027; --muted:#667066; --line:#dce3d8; --paper:#fff; --soft:#f7f9f5; --radius:8px; }
+    * { box-sizing:border-box; }
+    p, h1, h2, h3, h4, span, a, td, th, li { overflow-wrap:anywhere; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial,"Noto Sans KR",sans-serif; line-height:1.65; font-size:17px; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); }
+    .nav { min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-weight:800; letter-spacing:-.04em; color:var(--khaki-dark); }
+    nav { display:flex; gap:22px; font-size:14px; color:var(--muted); }
+    nav a:hover, nav a:focus { color:var(--khaki-dark); }
+    .hero { background:var(--soft); border-bottom:1px solid var(--line); padding:78px 0 72px; }
+    .eyebrow { color:var(--khaki); font-size:14px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:850px; margin:16px 0 22px; font-size:clamp(38px,7vw,72px); line-height:1.1; letter-spacing:-.07em; }
+    .hero-copy { max-width:720px; font-size:20px; color:var(--muted); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .button { display:inline-flex; align-items:center; min-height:48px; padding:0 18px; border-radius:var(--radius); font-weight:700; border:1px solid var(--khaki); }
+    .button.primary { color:#fff; background:var(--khaki); }
+    .button.secondary { color:var(--khaki-dark); background:#fff; }
+    .quick { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:48px; }
+    .quick-item { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
+    .quick-item strong { display:block; font-size:23px; color:var(--khaki-dark); }
+    .quick-item span { color:var(--muted); font-size:14px; }
+    section { padding:82px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:30px; }
+    h2 { margin-bottom:0; font-size:clamp(28px,4vw,44px); line-height:1.18; letter-spacing:-.06em; }
+    .section-intro { max-width:none; margin-bottom:0; color:var(--muted); font-size:14px; white-space:nowrap; word-break:keep-all; overflow-wrap:normal; }
+    .skills { background:var(--matcha); }
+    .skill-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .skill { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px; }
+    .skill-number { color:var(--khaki); font-weight:800; font-size:14px; }
+    .skill h3 { margin:10px 0 5px; font-size:21px; }
+    .skill p { margin:0; color:var(--muted); font-size:15px; }
+    .projects { display:grid; gap:18px; }
+    .project { border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#fff; }
+    .project-top { display:grid; grid-template-columns:1.1fr 1.9fr; gap:30px; padding:28px; }
+    .project-label { color:var(--khaki); font-weight:800; font-size:14px; }
+    .company-name { font:inherit; color:inherit; vertical-align:baseline; }
+    .project h3 { margin:8px 0 12px; font-size:27px; letter-spacing:-.04em; }
+    .project-result { margin:0; padding:16px; display:flex; align-items:center; justify-content:center; text-align:center; background:var(--soft); border-left:4px solid var(--khaki); border-radius:var(--radius); font-weight:700; }
+    .project-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .tag { display:inline-block; padding:5px 10px; background:var(--matcha); border-radius:999px; color:var(--khaki-dark); font-size:13px; font-weight:700; }
+    .details { border-top:1px solid var(--line); padding:24px 28px 28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; background:#fcfdfb; }
+    .details h4 { margin:0 0 8px; color:var(--khaki-dark); font-size:16px; }
+    .details p { margin:0; color:var(--muted); font-size:15px; }
+    .details ul { margin:0; padding-left:20px; color:var(--muted); font-size:15px; }
+    .process { background:var(--soft); }
+    .process-line { display:flex; align-items:center; gap:12px; }
+    .step { flex:1 1 0; min-width:0; height:174px; padding:22px 14px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:#fff; border:1px solid var(--line); border-radius:var(--radius); }
+    .step b { display:block; max-width:100%; margin-bottom:14px; color:var(--khaki-dark); font-size:clamp(13px,1.45vw,16px); line-height:1.35; letter-spacing:-.04em; word-break:keep-all; overflow-wrap:anywhere; }
+    .step span { display:block; max-width:100%; color:var(--muted); font-size:14px; line-height:1.5; word-break:keep-all; overflow-wrap:anywhere; }
+    .process-arrow { flex:0 0 auto; color:var(--khaki); font-size:27px; font-weight:700; line-height:1; }
+    .tools-table { width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+    th,td { text-align:left; padding:17px 18px; border-bottom:1px solid var(--line); }
+    th { background:var(--matcha); color:var(--khaki-dark); }
+    tr:last-child td { border-bottom:0; }
+    .contact { background:var(--khaki-dark); color:#fff; }
+    .contact .eyebrow { color:var(--matcha-deep); }
+    .contact p { color:#e8eee4; max-width:600px; }
+    footer { padding:24px 0; color:var(--muted); font-size:13px; }
+    @media (max-width:760px) { body { font-size:16px; } .wrap { width:min(100% - 28px,560px); } header { position:static; } .nav { min-height:62px; } nav { display:none; } .hero { padding:54px 0; } .hero-copy { font-size:18px; } .quick { grid-template-columns:repeat(2,1fr); margin-top:34px; } .quick-item strong { font-size:19px; } section { padding:58px 0; } .section-head { display:block; } .section-intro { margin-top:14px; } .skill-grid { grid-template-columns:1fr 1fr; } .project-top, .details { grid-template-columns:1fr; gap:18px; padding:22px; } .project h3 { font-size:24px; } .process-line { display:grid; grid-template-columns:1fr; gap:12px; } .process-arrow { transform:rotate(90deg); justify-self:center; } .step { height:auto; min-height:136px; } .tools-table { font-size:14px; } th,td { padding:13px 11px; } }
+    @media (max-width:420px) { .skill-grid, .quick { grid-template-columns:1fr; } h1 { font-size:40px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="#top">MECHANICAL DESIGN PORTFOLIO</a><nav aria-label="주요 메뉴"><a href="#skills">역량</a><a href="#projects">프로젝트</a><a href="#process">프로세스</a><a href="#tools">툴</a><a href="#contact">연락처</a><a href="chatbot.html">안전규정 검색</a></nav></div></header>
+  <main id="top">
+    <section class="hero"><div class="wrap">
+      <div class="eyebrow">Mechanical Design · Product Design</div>
+      <h1>설계하고, 시뮬레이션하고,<br>실물로 검증합니다.</h1>
+      <p class="hero-copy">CAD와 3D 모델링을 기반으로 메커니즘을 설계하고, 해석·시뮬레이션·테스트를 통해 설계 결과를 검증해온 기구설계·의장설계 지원자입니다.</p>
+      <div class="hero-actions"><a class="button primary" href="#projects">프로젝트 보기</a><a class="button secondary" href="#contact">지원자 정보 보기</a></div>
+      <div class="quick" aria-label="핵심 요약"><div class="quick-item"><strong>3건</strong><span>주요 프로젝트</span></div><div class="quick-item"><strong>79.6%</strong><span>고장진단 시스템 정확도</span></div><div class="quick-item"><strong>Creo</strong><span>3D 모델링·메커니즘 설계</span></div><div class="quick-item"><strong>Ansys</strong><span>선형 정적 구조해석</span></div></div>
+    </div></section>
+    <section id="skills" class="skills"><div class="wrap"><div class="section-head"><h2>핵심 역량</h2><p class="section-intro">모델링에 그치지 않고 설계 의도를 해석과 실물 검증으로 연결합니다.</p></div><div class="skill-grid">
+      <article class="skill"><span class="skill-number">01</span><h3>CAD · 3D 모델링</h3><p>Creo를 활용한 부품 및 메커니즘 모델링</p></article>
+      <article class="skill"><span class="skill-number">02</span><h3>기구 메커니즘 설계</h3><p>스퍼기어 회전을 아이리스 개폐로 전달</p></article>
+      <article class="skill"><span class="skill-number">03</span><h3>구조해석</h3><p>Ansys 기반 변형량·등가응력 분석</p></article>
+      <article class="skill"><span class="skill-number">04</span><h3>시뮬레이션</h3><p>MATLAB Simulink 모델 구축 및 최적화</p></article>
+      <article class="skill"><span class="skill-number">05</span><h3>실물 테스트</h3><p>테스트베드 구축과 고장데이터 확보</p></article>
+      <article class="skill"><span class="skill-number">06</span><h3>결과 검증</h3><p>수치와 비교를 통한 설계 안전성 검증</p></article>
+    </div></div></section>
+    <section id="projects"><div class="wrap"><div class="section-head"><h2>대표 프로젝트</h2><p class="section-intro">문제 정의부터 설계·해석·검증까지의 과정을 프로젝트별로 정리했습니다.</p></div><div class="projects">
+      <article class="project"><div class="project-top"><div><div class="project-label">01 · 기업 연계 캡스톤 디자인 (<span class="company-name">LG전자</span>)</div><h3>고장진단 시스템</h3><div class="project-meta"><span class="tag">Creo</span><span class="tag">MATLAB Simulink</span><span class="tag">3D 모델링</span></div></div><p class="project-result">실물 테스트베드와 시뮬레이션 모델을 구축하고, 정확도 79.6%의 고장진단 시스템을 구현했습니다.</p></div><div class="details"><div><h4>문제와 접근</h4><p>실측 데이터가 부족한 문제를 해결하기 위해 실물 테스트베드를 구축해 고장데이터를 확보하고, 부족한 데이터를 시뮬레이션 모델로 보완했습니다.</p></div><div><h4>핵심 결과</h4><ul><li>시뮬레이션 모델 구축 및 최적화</li><li>고장진단 시스템 정확도 79.6% 달성</li></ul></div></div></article>
+      <article class="project"><div class="project-top"><div><div class="project-label">02 · 설계경진대회</div><h3>아이리스 다이어프램</h3><div class="project-meta"><span class="tag">Creo</span><span class="tag">스퍼기어</span><span class="tag">Arduino</span><span class="tag">미세먼지 센서</span></div></div><p class="project-result">스퍼기어의 회전을 아이리스 다이어프램 개폐로 전달하고, 미세먼지 농도에 따라 개방률을 자동 조절했습니다.</p></div><div class="details"><div><h4>설계 목표</h4><p>스퍼기어의 회전 운동을 아이리스 다이어프램의 개폐 동작으로 전달하는 구동 메커니즘을 구현했습니다.</p></div><div><h4>핵심 결과</h4><ul><li>미세먼지 농도에 따른 자동 제어</li><li>개방률 100%, 70%, 30% 구현</li></ul></div></div></article>
+      <article class="project"><div class="project-top"><div><div class="project-label">03 · 공학설계실습 프로젝트</div><h3>선형 정적 구조해석</h3><div class="project-meta"><span class="tag">Ansys</span><span class="tag">메쉬 Quality</span><span class="tag">응력 검증</span></div></div><p class="project-result">하중에 따른 변형량과 등가응력 분포를 분석하고, 재료 항복강도와 비교해 구조적 안전성을 검증했습니다.</p></div><div class="details"><div><h4>해석 과정</h4><p>주요 부품을 모델링하고 하중 조건을 설정한 뒤 메쉬 Quality를 개선했습니다.</p></div><div><h4>핵심 결과</h4><ul><li>변형량 및 등가응력 분포 분석</li><li>최대 응력과 재료 항복강도 비교</li></ul></div></div></article>
+    </div></div></section>
+    <section id="process" class="process"><div class="wrap"><div class="section-head"><h2>설계 프로세스</h2><p class="section-intro">설계 결과가 나오는 과정을 한눈에 확인할 수 있습니다.</p></div><div class="process-line"><div class="step"><b>문제 정의</b><span>요구사항과 제약 파악</span></div><span class="process-arrow" aria-hidden="true">→</span><div class="step"><b>요구사항 정리</b><span>설계 목표 구체화</span></div><span class="process-arrow" aria-hidden="true">→</span><div class="step"><b>모델링·설계</b><span>CAD 기반 형상 구현</span></div><span class="process-arrow" aria-hidden="true">→</span><div class="step"><b>시뮬레이션·해석</b><span>설계안 성능 분석</span></div><span class="process-arrow" aria-hidden="true">→</span><div class="step"><b>테스트·검증</b><span>실물 또는 결과 검증</span></div><span class="process-arrow" aria-hidden="true">→</span><div class="step"><b>개선·결과</b><span>최종안과 수치 정리</span></div></div></div></section>
+    <section id="tools"><div class="wrap"><div class="section-head"><h2>사용 툴</h2><p class="section-intro">각 툴을 프로젝트의 설계 문제와 연결해 활용했습니다.</p></div><table class="tools-table"><thead><tr><th>기술·툴</th><th>활용 내용</th></tr></thead><tbody><tr><td><strong>Creo</strong></td><td>3D 모델링, 아이리스 다이어프램 및 스퍼기어 설계</td></tr><tr><td><strong>MATLAB Simulink</strong></td><td>시뮬레이션 모델 구축 및 데이터 보완·최적화</td></tr><tr><td><strong>Ansys</strong></td><td>선형 정적 구조해석, 변형량·등가응력 분석</td></tr><tr><td><strong>Arduino</strong></td><td>센서 연동 및 개방률 자동 제어 구현</td></tr><tr><td><strong>미세먼지 센서</strong></td><td>농도에 따른 기구부 작동 조건 입력</td></tr></tbody></table></div></section>
+    <section id="contact" class="contact"><div class="wrap"><div class="eyebrow">Next step</div><h2>설계의 근거와 결과를<br>더 자세히 확인해보세요.</h2><p>이름, 이메일, 전화번호, 이력서 링크는 실제 지원 정보에 맞춰 입력할 수 있도록 비워두었습니다.</p><div class="hero-actions"><a class="button secondary" href="mailto:">이메일 연락</a></div></div></section>
+  </main>
+  <footer><div class="wrap">© Mechanical Design Portfolio · 기구설계 · 의장설계</div></footer>
+</body>
+</html>
+
